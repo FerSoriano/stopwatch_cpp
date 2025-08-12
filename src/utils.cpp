@@ -102,6 +102,7 @@ void clear_stacks(){
     std::stack<long> empty_total_stack;
     std::swap(lap_stack, empty_lap_stack); 
     std::swap(split_stack, empty_split_stack);
+    std::swap(total_stack, empty_total_stack);
 }
 
 void show_stopwatch(const long& total_time, std::stack<int> lap, std::stack<long>split, std::stack<long>total){
