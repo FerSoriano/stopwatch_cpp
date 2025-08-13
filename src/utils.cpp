@@ -7,6 +7,7 @@
 #include <utility> // swap
 #include <iomanip>
 #include <stack>
+#include <sstream>
 
 int laps = 0;
 std::stack<int> lap_stack;
@@ -105,19 +106,35 @@ void clear_stacks(){
     std::swap(total_stack, empty_total_stack);
 }
 
-void show_stopwatch(const long& total_time, std::stack<int> lap, std::stack<long>split, std::stack<long>total){
-    // TODO: show time in HH:MM:SS
+void show_stopwatch(const long& milisec, std::stack<int> lap, std::stack<long>split, std::stack<long>total){
     // TODO: Identify the max and min
+    std::string time_str = format_time(milisec);
     std::string lines = "-----------------------------------------------------";
+    
     std::cout << "\n\n";
     std::cout << lines << std::endl;
-    std::cout << "\t\tCurrent time: " << total_time << " s." << std::endl;
+    std::cout << "\t\t\t" << time_str << std::endl;
     std::cout << lines << std::endl;
     std::cout << std::left << std::setw(23) << "Lap No." << std::setw(23) << "Split" << std::setw(23) << "Total" << std::endl;
     while (!lap.empty()) {
-        std::cout << std::left << std::setw(23) << lap.top() << std::setw(23) << split.top() << std::setw(23) << total.top() << std::endl;
+        std::cout << std::left << std::setw(23) << lap.top() << std::setw(23) << format_time(split.top()) << std::setw(23) << format_time(total.top()) << std::endl;
         lap.pop();
         split.pop();
         total.pop();
     }
+}
+
+std::string format_time(const long& milisec) {
+    long hours = milisec / 3600000;
+    long remaining_hours = milisec % 3600000;
+    long mins = remaining_hours / 60000;
+    long remaining_mins = remaining_hours % 60000;
+    int segs = remaining_mins / 1000;
+
+    std::stringstream ss;
+    ss << std::setw(2) << std::setfill('0') << hours << ":"
+       << std::setw(2) << std::setfill('0') << mins << ":"
+       << std::setw(2) << std::setfill('0') << segs;
+
+    return ss.str();
 }
