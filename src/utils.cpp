@@ -106,7 +106,9 @@ void clear_stacks(){
 }
 
 void show_stopwatch(const long& total_time, std::stack<int> lap, std::stack<long>split, std::stack<long>total){
-    std::string lines = "-------------------------------------------------------";
+    // TODO: show time in HH:MM:SS
+    // TODO: Identify the max and min
+    std::string lines = "-----------------------------------------------------";
     std::cout << "\n\n";
     std::cout << lines << std::endl;
     std::cout << "\t\tCurrent time: " << total_time << " s." << std::endl;
