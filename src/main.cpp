@@ -15,7 +15,10 @@ int main(){
             continue;
         }
 
-        if(_menu == 2){ break; }
+        if(_menu == 2){ 
+            std::cout<<"\n\n";    
+            break; 
+        }
         
         if(_menu == 1) { // start
             start_stopwatch();
