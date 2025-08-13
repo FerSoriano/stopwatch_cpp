@@ -15,8 +15,7 @@ void Stopwatch::start(){
 void Stopwatch::stop(){
     if (running) {
         auto now = std::chrono::steady_clock::now();
-        // elapsed += std::chrono::duration_cast<std::chrono::milliseconds>(now - start_time).count();
-        elapsed += std::chrono::duration_cast<std::chrono::seconds>(now - start_time).count();
+        elapsed += std::chrono::duration_cast<std::chrono::milliseconds>(now - start_time).count();
         running = false;
     }
 }
@@ -29,8 +28,7 @@ void Stopwatch::reset(){
 long Stopwatch::get_elapsed_time(){
     if (running) {
         auto now = std::chrono::steady_clock::now();
-        // return elapsed + std::chrono::duration_cast<std::chrono::milliseconds>(now - start_time).count();
-        return elapsed + std::chrono::duration_cast<std::chrono::seconds>(now - start_time).count();
+        return elapsed + std::chrono::duration_cast<std::chrono::milliseconds>(now - start_time).count();
     }
     return elapsed;
 }
