@@ -70,8 +70,12 @@ void start_stopwatch(){
                     main_sw.reset();
                     lap_sw.reset();
                     clear_stacks();
-                    running = false;
                     laps = 0;
+                    continue;
+                }
+                
+                if(_stop_menu == 3){ // exit
+                    running = false;
                     break;
                 }
             }
@@ -86,10 +90,6 @@ void start_stopwatch(){
             lap_sw.reset();
         }
     }
-    clear_console();
-    std::cout<<"Reset..."<<std::endl;
-    show_stopwatch(main_sw.get_elapsed_time(), lap_stack, split_stack, total_stack);
-
 }
 
 void show_elapsed_time(long total_time, long lap_time){

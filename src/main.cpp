@@ -8,7 +8,8 @@ using namespace std;
 
 int main(){
     int _menu;
-    while(true){    
+    bool running = true;
+    while(running){    
         _menu = menu();
         if(_menu < 1 || _menu > 2){
             cout << "\n\t*** Invalid option ***\n";
@@ -22,6 +23,8 @@ int main(){
         
         if(_menu == 1) { // start
             start_stopwatch();
+            running = false;
+            std::cout<<"\n\n";
         }
     }
     return 0;
