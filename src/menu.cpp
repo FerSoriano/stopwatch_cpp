@@ -34,7 +34,7 @@ int stop_menu(){
     int option;
     std::cout << "\n\n";
     std::cout << lines << std::endl;
-    std::cout << std::setw(15) << "1) Start" << std::setw(15) << "2) Reset" << std::setw(15) << "3) Exit" << std::setw(15) << "Option:" << std::endl;
+    std::cout << std::setw(15) << "1) Continue" << std::setw(15) << "2) Reset" << std::setw(15) << "3) Exit" << std::setw(15) << "Option:" << std::endl;
     std::cout << lines;
     std::cout << "\033[A\033[0C"; // move cursor one line up
     std::cin >> option; valid_input();
